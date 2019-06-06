@@ -10,29 +10,6 @@ class Form extends React.Component {
   constructor(props) {
     super(props);
 
-    // this.fruits = [
-    //   {
-    //     id: "0",
-    //     name: "apple"
-    //   },
-    //   {
-    //     id: "1",
-    //     name: "banana"
-    //   },
-    //   {
-    //     id: "2",
-    //     name: "orange"
-    //   },
-    //   {
-    //     id: "3",
-    //     name: "watermelon"
-    //   },
-    //   {
-    //     id: "4",
-    //     name: "durian"
-    //   }
-    // ];
-
     this.state = {
       input: "",
       fruits: []
@@ -40,7 +17,6 @@ class Form extends React.Component {
   }
 
   componentDidMount() {
-    console.log("mounted");
     fetch(
       "https://my-json-server.typicode.com/thoughtworks-jumpstart/api/fruits"
     )
@@ -48,7 +24,7 @@ class Form extends React.Component {
       .then(data => {
         // do something with the data
         data.map((item, index) => {
-          item["id"] = index;
+          item["id"] = item.type;
         });
 
         this.setState({
